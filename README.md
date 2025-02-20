@@ -1,7 +1,10 @@
 # sakura2
 Sakura Mk2, Sakura is PSS/PSM SDK reverse engineering with OpenTK, Mono, dotNet and etc
 
-## Ref  
+## Status  
+* WIP, do not use me now, sadly not working, I am reconstructing it for more portable for embedded linux like game handheld    
+
+## References  
 * https://github.com/weimingtom/Sakura
 * https://gitee.com/weimingtom/sakura_ubuntu
 * https://sourceforge.net/projects/opentk/files/opentk/opentk-1.1/stable-5/  
