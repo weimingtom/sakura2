@@ -13,6 +13,13 @@ Sakura Mk2, Sakura is PSS/PSM SDK reverse engineering with OpenTK, Mono, dotNet 
 * 2024-12-28: Restart project, running simple hello successfully under ubuntu without ANGLE so files. (libEGL.so and libGLESv2.so removed, see sakura_ubuntu libGLESv2angle.so)    
 * From about 2018-01-15 to 2018-03-22: Develop it for Windows XP with ANGLE dlls and SharpDevelop 4.4, but porting to Linux difficultly, too many bugs to fix.        
 
+## Bugs  
+
+## TODO  
+* Run with GLES no X11  
+* Build and run with dotnet core     
+* Support Raspberry Pi 4B  
+
 ## Weibo record before   
 ```
 我已经把可以运行最简单例子的PSSSDK的OpenTK移植版迁移到gh上，
@@ -180,4 +187,16 @@ xubuntu 20下用monodevelop运行的效果，我想通了，
 但如果要移植到Linux掌机，需要去掉X11的相关代码
 （Linux掌机上没有x11环境，但可以运行EGL和GLES2代码）。
 我需要研究，如果OpenTK没有简答的方法的话，只能自己动手写代码实现了
+
+我试了一下在树莓派4B下跑Sakura2（我改的一个OpenGL引擎），果然可以跑起来，
+看来如果ubuntu能跑的话树莓派4B应该也行，只是在纯命令行下就不行了，
+会抛出异常，这个我也早就料到，以后慢慢想办法——因为OpenTK不保证在非X11环境下能用，
+它甚至可能不考虑这种情况。我跑Sakura2是装mono-devel这个软件包，
+如果太慢的话可以连接到手机的无线，就能很快安装好。至于dotnetcore，
+因为系统没有带这个软件包，暂时就不测试了，我估计也能跑起来
+
+好像不行，用dotnet core没办法运行我的sakura2，好吧，毕竟dotnet core都版本8了，
+应该不兼容旧的，看来mono是兼容旧dotnet框架做得最好的。
+如果想要兼容dotnet core运行时，最好的办法还是用dotnet core编译，
+否则会有各种各样的问题，我用sharpdevelop编译就不能用dotnet core跑了
 ```
